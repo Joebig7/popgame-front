@@ -1,7 +1,22 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Root from "./routes/root";
+import Login from "./routes/login";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [{}],
+  },
+
+  {
+    path: "login",
+    element: <Login />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <h1 className="text-2xl font-bold text-blue-900 underline">Hello world!</h1>
-);
+root.render(<RouterProvider router={router} />);
