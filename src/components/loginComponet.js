@@ -6,12 +6,12 @@ function LoginComponent() {
       <form className="flex flex-col space-y-10">
         <h1 className="text-3xl font-bold">欢迎登录Popgame</h1>
         <input
-          className="h-12 w-96 rounded-md border-2 text-lg"
+          className="h-12 w-96 rounded-md border-4 text-lg"
           type="text"
           placeholder="请输入用户名或邮箱"
         />
         <input
-          className="h-12 w-96 rounded-md border-2 text-lg"
+          className="h-12 w-96 rounded-md border-4 text-lg"
           type="password"
           placeholder="请输入密码"
         />
