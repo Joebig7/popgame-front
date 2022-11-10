@@ -1,27 +1,51 @@
 import { Form } from "react-router-dom";
-import { AiOutlineUser } from "react-icons/ai";
-import { RiLockPasswordLine } from "react-icons/ri";
+import { AiOutlineUser, AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { useState } from "react";
 
 function LoginComponent() {
+  const [emailValue, setEmailValue] = useState({
+    email: "",
+  });
+  const [passValue, setPassValue] = useState({
+    password: "",
+    showPassword: false,
+  });
+
+  function toggleShow() {
+    setPassValue({
+      showPassword: passValue.showPassword === false ? true : false,
+    });
+  }
+
   return (
-    <div className="relative right-6 basis-3/4 place-self-center">
+    <div className="relative basis-3/4 place-self-center">
       <form className="flex flex-col">
-        <h1 className="mb-12 text-3xl font-bold">欢迎登录Popgame</h1>
+        <h1 className="mb-10 text-3xl font-bold">欢迎登录Popgame</h1>
 
         <div className="flex flex-row ">
-          <AiOutlineUser className="pointer-events-none absolute right-3 top-[88px] order-2 fill-grey-300 text-2xl" />
+          <AiOutlineUser className="pointer-events-none absolute right-3 top-[86px] order-2 fill-grey-300 text-2xl" />
           <input
-            className="mb-12 h-12 w-full rounded-md"
+            className="mb-10 h-12 w-full rounded-md"
+            value={emailValue.email}
             type="text"
             placeholder="请输入用户名或邮箱"
           />
         </div>
 
         <div className="flex flex-row ">
-          <RiLockPasswordLine className="pointer-events-none absolute right-3 top-[186px] order-2 fill-grey-300 text-2xl" />
+          <AiFillEye
+            hidden={passValue.showPassword}
+            onClick={toggleShow}
+            className="absolute right-3 top-[178px] order-2 fill-grey-300 text-2xl"
+          />
+          <AiFillEyeInvisible
+            hidden={!passValue.showPassword}
+            onClick={toggleShow}
+            className="absolute right-3 top-[178px] order-2  fill-grey-300 text-2xl"
+          />
           <input
             className="mb-2 h-12 w-full rounded-md"
-            type="password"
+            type={passValue.showPassword ? "text" : "password"}
             placeholder="请输入密码"
           />
         </div>
