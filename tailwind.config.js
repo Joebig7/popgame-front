@@ -1,14 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require('tailwindcss/defaultTheme')
-
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         // Primary
@@ -88,9 +87,13 @@ module.exports = {
         },
       },
     },
-    daisyui:{
-      themes:["light","dark"]
-    }
+    daisyui: {
+      themes: ["light", "dark"],
+    },
   },
-  plugins: [require("@tailwindcss/forms"),require("daisyui")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("daisyui"),
+  ],
 };
