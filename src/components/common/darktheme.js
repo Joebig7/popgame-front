@@ -10,7 +10,8 @@ function DarkTheme() {
 
   useEffect(() => {
     themeChange(false);
-  }, []);
+    localStorage.setItem("mode", enabled)
+  }, [enabled]);
 
   return (
     <ThemeContext.Provider value={enabled}>
