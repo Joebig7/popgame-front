@@ -81,6 +81,9 @@ module.exports = {
         },
       },
     },
+    daisyui:{
+      themes:["light","dark"]
+    }
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"),require("daisyui")],
 };
