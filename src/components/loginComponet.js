@@ -20,7 +20,7 @@ function LoginComponent() {
   return (
     <div className="relative basis-3/4 place-self-center">
       <form className="flex flex-col">
-        <h1 className="mb-16 text-4xl font-bold">欢迎登录Popgame</h1>
+        <h1 className="mb-16 font-sans text-4xl font-bold">欢迎登录Popgame</h1>
 
         <div className="flex flex-row ">
           <AiOutlineUser className="pointer-events-none absolute right-3 top-[114px] order-2 fill-grey-300 text-2xl" />

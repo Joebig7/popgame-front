@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Root from "./routes/root";
+import Index from "./routes/index";
 import Login from "./routes/login";
 import Register from "./routes/register";
 import Forget from "./routes/forget";
@@ -10,7 +10,7 @@ import Forget from "./routes/forget";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Index />,
     children: [{}],
   },
   {
