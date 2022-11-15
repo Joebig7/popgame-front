@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../common/context-manager";
 
 function LoginBg() {
-  const {globalTheme} = useContext(ThemeContext);
+  const { globalTheme } = useContext(ThemeContext);
   return (
     <>
       {
@@ -11,8 +11,9 @@ function LoginBg() {
             globalTheme === "dark"
               ? "bg-[url('/public/images/login-bg-cover-dark.jpg')]"
               : "bg-[url('/public/images/login-bg-cover.jpg')]"
-          } h-screen basis-5/12 bg-auto bg-center shadow-inner`}
-        ></div>
+          } flex h-screen w-full basis-5/12 flex-row flex-wrap place-content-end bg-auto bg-center shadow-inner `}
+        >
+        </div>
       }
     </>
   );

@@ -5,8 +5,8 @@ import LoginButton from "./loginButton";
 
 function LoginForm(props) {
   return (
-    <div className="relative bottom-4 flex h-3/4 w-5/12 flex-col bg-blue-500">
-      <form className="w-full h-full">
+    <div className="relative flex h-3/4 w-1/3 flex-col">
+      <form className="h-full w-full">
         <LoginUserName />
         <LoginPassword />
         <LoginToPwdForgetLink />

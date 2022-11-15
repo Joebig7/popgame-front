@@ -86,6 +86,9 @@ module.exports = {
           900: "#014D40",
         },
       },
+      screens: {
+        "3xl": "2000px",
+      },
     },
     daisyui: {
       themes: ["light", "dark"],
