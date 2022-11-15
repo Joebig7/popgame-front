@@ -1,13 +1,15 @@
 import LoginToRegisterLink from "./loginToRegisterLink";
 import Logo from "../common/logo";
-import DarkTheme from "../common/darktheme"
+import DarkTheme from "../common/darktheme";
 
 function LoginNav() {
   return (
-    <div className="flex flex-row place-content-between">
-      <DarkTheme className="relative left-[100px]"/>
+    <div className="flex h-1/12 flex-row  place-content-between ">
       <Logo />
-      <LoginToRegisterLink/>
+      <div className="flex h-full w-96 flex-row justify-between">
+        <DarkTheme />
+        <LoginToRegisterLink />
+      </div>
     </div>
   );
 }

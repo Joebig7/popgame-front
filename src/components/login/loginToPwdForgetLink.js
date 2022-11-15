@@ -1,6 +1,6 @@
 function LoginToPwdForgetLink() {
 
-    
+    return <div>LoginToPwdForgetLink</div>
 
 }
 
