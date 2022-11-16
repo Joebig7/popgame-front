@@ -11,9 +11,8 @@ function LoginBg() {
             globalTheme === "dark"
               ? "bg-[url('/public/images/login-bg-cover-dark.jpg')]"
               : "bg-[url('/public/images/login-bg-cover.jpg')]"
-          } flex h-screen w-full basis-5/12 flex-row flex-wrap place-content-end bg-auto bg-center shadow-inner `}
-        >
-        </div>
+          } invisible flex  h-screen    flex-row flex-wrap place-content-end bg-auto bg-center shadow-inner  xl:visible xl:w-full xl:basis-5/12`}
+        ></div>
       }
     </>
   );
