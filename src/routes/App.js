@@ -8,13 +8,12 @@ import { useState } from "react";
 import { ThemeContext } from "../components/common/context-manager";
 
 function App() {
-  
-  function toggleTheme(theme){
+  function toggleTheme(theme) {
     setGlobalTheme(theme);
   }
 
   const [globalTheme, setGlobalTheme] = useState(localStorage.getItem("theme"));
- 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -23,7 +22,7 @@ function App() {
     },
     {
       path: "login",
-      element: <Login />,
+      element: <Login />
     },
     {
       path: "register",
@@ -37,7 +36,7 @@ function App() {
 
   return (
     <>
-      <ThemeContext.Provider value={{globalTheme,toggleTheme}}>
+      <ThemeContext.Provider value={{ globalTheme, toggleTheme }}>
         <RouterProvider router={router} />
       </ThemeContext.Provider>
     </>
