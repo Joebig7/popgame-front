@@ -59,7 +59,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="relative top-56 flex h-3/4 w-1/3 flex-col">
+    <div className="relative flex h-3/4 w-1/3 flex-col 3xl:top-56">
       <form
         method="post"
         className="flex h-full w-full flex-col gap-16"
