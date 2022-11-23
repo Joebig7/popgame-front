@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { AiOutlineUser, AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import LoginErrorModal from "./loginErrorModal";
 
 function LoginForm() {
   const {
@@ -18,6 +19,8 @@ function LoginForm() {
     password: "",
     showPassword: false,
   });
+
+  const [open, setOpen] = useState(false);
 
   function toggleShow() {
     setPassValue({
@@ -41,7 +44,7 @@ function LoginForm() {
           localStorage.setItem("token", "Bearer " + response.data.data);
           navigate("/");
         } else {
-          alert(response.data.msg);
+          setOpen(true);
         }
       })
       .catch(function (error) {
@@ -60,6 +63,7 @@ function LoginForm() {
 
   return (
     <div className="relative flex h-3/4 w-1/3 flex-col 3xl:top-56">
+      <LoginErrorModal open={open} setOpen={setOpen} />
       <form
         method="post"
         className="flex h-full w-full flex-col gap-16"
