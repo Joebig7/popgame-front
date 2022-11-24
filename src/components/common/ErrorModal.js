@@ -1,11 +1,13 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationIcon } from "@heroicons/react/outline";
 
-export default function LoginErrorModal(props) {
+export default function ErrorModal(props) {
   //   const [open, setOpen] = useState(true);
   let open = props.open;
   let setOpen = props.setOpen;
+  let title = props.title;
+  let description = props.description;
 
   const cancelButtonRef = useRef(null);
 
@@ -62,12 +64,10 @@ export default function LoginErrorModal(props) {
                       as="h3"
                       className="text-lg font-medium leading-6 text-gray-900"
                     >
-                      用户名或密码错误
+                      {title}
                     </Dialog.Title>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        请确认您输入的用户名和密码是否完全正确！
-                      </p>
+                      <p className="text-sm text-gray-500">{description}</p>
                     </div>
                   </div>
                 </div>

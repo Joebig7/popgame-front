@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { AiOutlineUser, AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LoginErrorModal from "./loginErrorModal";
+import ErrorModal from "../common/ErrorModal";
 
 function LoginForm() {
   const {
@@ -63,14 +63,19 @@ function LoginForm() {
 
   return (
     <div className="relative flex h-3/4 w-1/3 flex-col 3xl:top-56">
-      <LoginErrorModal open={open} setOpen={setOpen} />
+      <ErrorModal
+        open={open}
+        setOpen={setOpen}
+        title="用户名或密码错误"
+        description="请确认您输入的用户名和密码是否完全正确！"
+      />
       <form
         method="post"
         className="flex h-full w-full flex-col gap-16"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex w-full flex-row">
-          <AiOutlineUser className="pointer-events-none absolute right-4 top-2 order-2 fill-grey-300 text-2xl" />
+          <AiOutlineUser className="fill-grey-300 pointer-events-none absolute right-4 top-2 order-2 text-2xl" />
           <input
             className="input-bordered input  w-full"
             // value={emailValue.email}
@@ -84,12 +89,12 @@ function LoginForm() {
           <AiFillEye
             hidden={passValue.showPassword}
             onClick={toggleShow}
-            className="absolute right-4 top-[122px]  order-2 fill-grey-300 text-2xl"
+            className="fill-grey-300 absolute right-4  top-[122px] order-2 text-2xl"
           />
           <AiFillEyeInvisible
             hidden={!passValue.showPassword}
             onClick={toggleShow}
-            className="absolute right-4 top-[122px] order-2  fill-grey-300 text-2xl"
+            className="fill-grey-300 absolute right-4 top-[122px]  order-2 text-2xl"
           />
           <input
             className="input-bordered input  w-full"

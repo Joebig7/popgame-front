@@ -1,5 +1,7 @@
+import RegisterContent from "../components/register/Register";
+
 function Register() {
-  return <div>注册</div>;
+  return <RegisterContent />;
 }
 
 export default Register;
