@@ -11,8 +11,6 @@ export default function ErrorModal(props) {
 
   const cancelButtonRef = useRef(null);
 
-  console.log("open:" + open);
-
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog

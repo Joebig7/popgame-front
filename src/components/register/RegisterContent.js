@@ -7,6 +7,7 @@ import { ILLEGAL_CHAR } from "../common/string-manage";
 import ErrorModal from "../common/ErrorModal";
 import SuccessModal from "../common/SuccessModal";
 import * as stringUtils from "../../util/string";
+import Logo from "../common/logo";
 
 export default function RegisterContent() {
   const { register, handleSubmit } = useForm();
@@ -15,6 +16,7 @@ export default function RegisterContent() {
   const [errorInfo, setUseErrorInfo] = useState({
     title: "",
     description: "",
+    path:""
   });
 
   const [successOpen, setSuccessOpen] = useState(false);
@@ -29,9 +31,7 @@ export default function RegisterContent() {
     <>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h1 className="font-blod  text-center text-4xl font-extrabold text-blue-700">
-            PopGame
-          </h1>
+          <Logo className="font-blod  text-center text-4xl font-extrabold text-blue-700"/>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             注册你的账户
           </h2>
@@ -168,6 +168,7 @@ export default function RegisterContent() {
           setOpen={setSuccessOpen}
           title={successInfo.title}
           description={successInfo.description}
+          path={successInfo.path}
         />
       </div>
     </>
@@ -186,7 +187,6 @@ function onSubmit(
   let username = data.username;
   let password = data.password;
   let repassword = data.repassword;
-  console.log(data);
   if (
     stringUtils.isNull(email) ||
     stringUtils.isNull(username) ||
@@ -221,7 +221,6 @@ function onSubmit(
   }
 
   if (password !== repassword) {
-    console.log("xx");
     setOpen(true);
     setUseErrorInfo({
       title: "两次密码输入不一致",
@@ -241,11 +240,9 @@ function onSubmit(
         setSuccessOpen(true);
         setSuccessInfo({
           title: "注册成功",
-          description: "恭喜您成功注册为PopGame的会员!",
+          description: "恭喜您成功注册为PopGame的会员,我们发送了一封邮箱来让您激活该账号，请前往确认",
+          path:"/login"
         });
-        setTimeout(() => {
-          navigate("/login");
-        }, 1500);
       } else if (response.status === 200 && response.data.code === 5005) {
         setOpen(true);
         setUseErrorInfo({

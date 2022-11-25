@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-function Logo() {
+function Logo({className}) {
   return (
-    <span className="link relative left-14 top-2 text-6xl font-black normal-case tracking-wide text-blue-900 no-underline drop-shadow-2xl">
+    <h1 className={className}>
       <Link to="/">PopGame</Link>
-    </span>
+    </h1>
   );
 }
 

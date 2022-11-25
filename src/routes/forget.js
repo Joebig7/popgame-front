@@ -1,5 +1,7 @@
+import ForgetPwd from "../components/forgetPwd/forgetPwd";
+
 function Forget() {
-  return <div>忘记密码</div>;
+  return <ForgetPwd />;
 }
 
 export default Forget;
