@@ -70,8 +70,10 @@ export default function SuccessModal({
               <div className="mt-5 sm:mt-6">
                 <button
                   type="button"
-                  className="inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm"
-                  onClick={() => navigate(path)}
+                  className={`${
+                    path === undefined ? "invisible" : "visible"
+                  } inline-flex w-full justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:text-sm`}
+                  onClick={()=>navigateTo(path, navigate, setOpen)}
                 >
                   确认
                 </button>
@@ -82,4 +84,13 @@ export default function SuccessModal({
       </Dialog>
     </Transition.Root>
   );
+}
+
+function navigateTo(path, navigate, setOpen) {
+  console.log(path);
+
+  if (path === "" || path === "." || path === undefined) {
+    setOpen(false);
+  }
+  navigate(path);
 }

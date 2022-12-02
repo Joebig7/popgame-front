@@ -6,6 +6,7 @@ import Register from "./register";
 import Forget from "./forget";
 import { useState } from "react";
 import { ThemeContext } from "../components/common/context-manager";
+import ForgetContent from "../components/forgetPwd/forgetContent";
 
 function App() {
   function toggleTheme(theme) {
@@ -22,7 +23,7 @@ function App() {
     },
     {
       path: "login",
-      element: <Login />
+      element: <Login />,
     },
     {
       path: "register",
@@ -31,6 +32,14 @@ function App() {
     {
       path: "forget",
       element: <Forget />,
+      children: [
+        {
+          path: "forgetContent",
+          element: <ForgetContent />,
+          children: [
+          ],
+        },
+      ],
     },
   ]);
 
