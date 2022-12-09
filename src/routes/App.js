@@ -7,6 +7,7 @@ import Forget from "./forget";
 import { useState } from "react";
 import { ThemeContext } from "../components/common/context-manager";
 import ForgetContent from "../components/forgetPwd/forgetContent";
+import ErrorPage from "../routes/errorPage"
 
 function App() {
   function toggleTheme(theme) {
@@ -19,6 +20,7 @@ function App() {
     {
       path: "/",
       element: <HOME />,
+      errorElement: <ErrorPage />,
       children: [{}],
     },
     {

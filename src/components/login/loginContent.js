@@ -3,7 +3,7 @@ import LoginFormWrapper from "./loginFormWrapper";
 
 function LoginContent() {
   return (
-    <div className="basis-full xl:basis-7/12   w-full h-screen">
+    <div className="dark:bg-grey-900 h-screen w-full basis-full xl:basis-7/12">
       <LoginNav />
       <LoginFormWrapper />
     </div>
