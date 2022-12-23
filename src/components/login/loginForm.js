@@ -72,7 +72,7 @@ function LoginForm() {
 
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
+          <h2 className="invisible mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white md:visible">
             登 录 到 您 的 账 户
           </h2>
         </div>
@@ -98,7 +98,7 @@ function LoginForm() {
                     type="text"
                     placeholder="请输入用户名或邮箱"
                     {...register("name", { required: true })}
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-grey-600 dark:bg-grey-900 dark:focus:ring-grey-400 sm:text-sm dark:text-grey-200"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-grey-600 dark:bg-grey-900 dark:text-grey-200 dark:focus:ring-grey-400 sm:text-sm"
                   />
                   <AiOutlineUser className="pointer-events-none relative bottom-8 right-2  float-right fill-grey-300 text-2xl" />
                 </div>
@@ -118,7 +118,7 @@ function LoginForm() {
                     type={passValue.showPassword ? "text" : "password"}
                     {...register("password", { required: true })}
                     placeholder="请输入密码"
-                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-grey-600 dark:bg-grey-900 dark:focus:ring-grey-400 sm:text-sm dark:text-grey-200"
+                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-grey-600 dark:bg-grey-900 dark:text-grey-200 dark:focus:ring-grey-400 sm:text-sm"
                   />
                 </div>
                 <AiFillEye
