@@ -23,6 +23,7 @@ function getLoginInfo(token, setLoginInfo) {
           username: result.username,
           avatar: result.avatar,
           status: true,
+          email: result.email,
         });
       } else {
         setLoginInfo({
@@ -50,6 +51,7 @@ function loginOut(setLoginInfo) {
   localStorage.removeItem("token");
   setLoginInfo({
     username: "",
+    email: "",
     avatar: "",
     status: false,
   });
@@ -58,6 +60,7 @@ function loginOut(setLoginInfo) {
 export default function HomeNavbar() {
   const [loginInfo, setLoginInfo] = useState({
     username: "",
+    email: "",
     avatar: "",
     status: false,
   });
@@ -126,9 +129,7 @@ export default function HomeNavbar() {
                             alt=""
                           />
                         ) : (
-
-                          <AiOutlineLogin  className="h-6 w-6 "/> 
-                         
+                          <AiOutlineLogin className="h-6 w-6 " />
                         )}
                       </Menu.Button>
                     </div>
@@ -161,13 +162,15 @@ export default function HomeNavbar() {
                             <Menu.Item>
                               {({ active }) => (
                                 <button
-                                  onClick={() =>{loginOut(setLoginInfo)}}
+                                  onClick={() => {
+                                    loginOut(setLoginInfo);
+                                  }}
                                   className={classNames(
                                     active ? "bg-gray-100" : "",
                                     "block px-4 py-2 text-sm text-gray-700"
                                   )}
                                 >
-                                    退 出 登 录
+                                  退 出 登 录
                                 </button>
                               )}
                             </Menu.Item>
@@ -199,36 +202,59 @@ export default function HomeNavbar() {
             <div className="border-t border-gray-700 pt-4 pb-3">
               <div className="flex items-center px-5">
                 <div className="flex-shrink-0">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
+                  {loginInfo.status === true ? (
+                    <img
+                      className="h-8 w-8 rounded-full"
+                      src={loginInfo.avatar}
+                      alt=""
+                    />
+                  ) : (
+                    <AiOutlineLogin className="h-6 w-6 text-white" />
+                  )}
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium text-white">
-                    Tom Cook
+                    {loginInfo.status === true ? (
+                      loginInfo.username
+                    ) : (
+                      <>
+                        <Disclosure.Button className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
+                          <Link to="/login" className="text-gray-200">
+                            请 登 录
+                          </Link>
+                        </Disclosure.Button>
+                      </>
+                    )}
                   </div>
                   <div className="text-sm font-medium text-gray-400">
-                    tom@example.com
+                    {loginInfo.status === true ? loginInfo.email : ""}
                   </div>
                 </div>
               </div>
               <div className="mt-3 space-y-1 px-2">
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                >
-                  主页
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                >
-                  登出
-                </Disclosure.Button>
+                {loginInfo.status === true ? (
+                  <>
+                    {" "}
+                    <Disclosure.Button
+                      as="a"
+                      href="#"
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                    >
+                      主页
+                    </Disclosure.Button>
+                    <Disclosure.Button
+                      as="a"
+                      onClick={() => {
+                        loginOut(setLoginInfo);
+                      }}
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                    >
+                      退 出 登 录
+                    </Disclosure.Button>
+                  </>
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </Disclosure.Panel>

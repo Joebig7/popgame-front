@@ -6,38 +6,29 @@ import HomeGameList from "./home-game-list";
 
 const filters = [
   {
-    id: "color",
-    name: "Color",
+    id: "recommend_level",
+    name: "推荐指数",
     options: [
-      { value: "white", label: "White" },
-      { value: "beige", label: "Beige" },
-      { value: "blue", label: "Blue" },
-      { value: "brown", label: "Brown" },
-      { value: "green", label: "Green" },
-      { value: "purple", label: "Purple" },
+      { value: "1", label: "多半差评" },
+      { value: "2", label: "口碑一般" },
+      { value: "3", label: "多半好评" },
+      { value: "4", label: "好评如潮" },
+      { value: "5", label: "特别好评" },
     ],
   },
   {
-    id: "category",
-    name: "Category",
+    id: "tag",
+    name: "游戏标签",
     options: [
-      { value: "new-arrivals", label: "All New Arrivals" },
-      { value: "tees", label: "Tees" },
-      { value: "crewnecks", label: "Crewnecks" },
-      { value: "sweatshirts", label: "Sweatshirts" },
-      { value: "pants-shorts", label: "Pants & Shorts" },
-    ],
-  },
-  {
-    id: "sizes",
-    name: "Sizes",
-    options: [
-      { value: "xs", label: "XS" },
-      { value: "s", label: "S" },
-      { value: "m", label: "M" },
-      { value: "l", label: "L" },
-      { value: "xl", label: "XL" },
-      { value: "2xl", label: "2XL" },
+      { value: "第一人称", label: "第一人称" },
+      { value: "角色扮演", label: "角色扮演" },
+      { value: "动作", label: "动作" },
+      { value: "开放世界", label: "开放世界" },
+      { value: "回合制战斗", label: "回合制战斗" },
+      { value: "策略", label: "策略" },
+      { value: "冒险", label: "冒险" },
+      { value: "第三人称", label: "第三人称" },
+      { value: "类魂系列", label: "类魂系列" },
     ],
   },
 ];
@@ -159,7 +150,7 @@ export default function HomeCategoryFilter() {
               游戏库
             </h1>
             <p className="mt-4 text-base text-gray-500">
-               在下方寻找你感兴趣的游戏，了解更多资讯吧！
+              在下方寻找你感兴趣的游戏，了解更多资讯吧！
             </p>
           </div>
 
